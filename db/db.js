@@ -1,10 +1,11 @@
+import { configDotenv } from 'dotenv'
 import {createPool} from 'mysql2/promise'
-
+configDotenv()
 const pool = createPool({
-    host: 'sql12.freesqldatabase.com',
-    user: 'sql12766416',
-    password: '5HY1BpQK7w',
-    database: 'sql12766416'
+    host: process.env.MYSQL_HOST,
+    user: process.env.MYSQL_USER,
+    password: process.env.MYSQL_PASSWORD,
+    database: process.env.MYSQL_DATABASE,
 })
 
 // const result = await pool.query("create table schools (id int primary key auto_increment, name varchar(255), address varchar(255), latitude float, longitude float)")
